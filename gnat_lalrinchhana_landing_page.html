@@ -1,0 +1,446 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .page {
+    font-family: 'Lato', sans-serif;
+    background: #0a0a0a;
+    color: #e8e0d4;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    border-bottom: 1px solid #2a2a2a;
+    overflow: hidden;
+  }
+
+  /* Full-bleed photo block */
+  .hero-photo-wrap {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+  }
+
+  .hero-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    filter: grayscale(30%) contrast(1.08) brightness(0.72);
+  }
+
+  /* Gradient fades — top to transparent, then strong dark at bottom */
+  .hero-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom,
+        rgba(10,10,10,0.55) 0%,
+        rgba(10,10,10,0.0) 30%,
+        rgba(10,10,10,0.0) 55%,
+        rgba(10,10,10,0.92) 100%);
+    z-index: 1;
+  }
+
+  /* Warm sepia tint overlay */
+  .hero-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(60,30,10,0.18);
+    mix-blend-mode: multiply;
+    z-index: 2;
+  }
+
+  /* Text layered over the bottom of the photo */
+  .hero-text-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 10;
+    padding: 2.5rem 2rem 2.2rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b09070;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 7vw, 4.6rem);
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 1.05;
+    color: #f5ede0;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #9a8060;
+  }
+
+  /* Below-photo content area */
+  .hero-below {
+    background: radial-gradient(ellipse at top, #120e0a 0%, #0a0a0a 60%);
+    padding: 2rem 2rem 2.5rem;
+    text-align: center;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #8a7255, transparent);
+    margin: 0 auto 1.8rem;
+  }
+
+  .hero-bio {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: #6a5e52;
+  }
+
+  .rip-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #120e0a;
+    border: 1px solid #2a2018;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    color: #6a5a48;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+  }
+
+  /* ── SONGS ── */
+  .section-label {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #5a4e42;
+    padding: 3rem 2rem 1.5rem;
+    font-weight: 700;
+  }
+
+  .songs-grid {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .song-card {
+    border: 1px solid #1e1e1e;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+    background: #0e0e0e;
+  }
+
+  .song-card:hover { border-color: #3a3028; }
+  .song-card.open { border-color: #4a3828; }
+
+  .song-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.1rem 1.3rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .thumb {
+    width: 54px;
+    height: 54px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thumb-1 { background: #1a120c; color: #8a6a44; border: 1px solid #2a1e14; }
+  .thumb-2 { background: #0c1218; color: #4a7a9a; border: 1px solid #142030; }
+  .thumb-3 { background: #0e140e; color: #5a8a5a; border: 1px solid #182414; }
+  .thumb-4 { background: #180c12; color: #9a5a7a; border: 1px solid #28101c; }
+
+  .thumb-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .thumb-note { font-size: 20px; line-height: 1; }
+  .thumb-num {
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    margin-top: 3px;
+    font-style: normal;
+  }
+
+  .song-meta { flex: 1; min-width: 0; }
+
+  .song-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #e0d8cc;
+    margin-bottom: 0.2rem;
+  }
+
+  .song-subtitle { font-size: 0.8rem; color: #5a5048; letter-spacing: 0.5px; }
+
+  .song-toggle {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid #2a2a2a;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.25s;
+    background: transparent;
+  }
+
+  .song-card.open .song-toggle { border-color: #5a4030; background: #1a1008; }
+
+  .toggle-icon {
+    width: 10px; height: 10px;
+    position: relative;
+    transition: transform 0.3s;
+  }
+
+  .song-card.open .toggle-icon { transform: rotate(45deg); }
+
+  .toggle-icon::before, .toggle-icon::after {
+    content: '';
+    position: absolute;
+    background: #8a7255;
+    border-radius: 1px;
+  }
+
+  .toggle-icon::before { width: 10px; height: 1.5px; top: 50%; left: 0; transform: translateY(-50%); }
+  .toggle-icon::after  { width: 1.5px; height: 10px; left: 50%; top: 0; transform: translateX(-50%); }
+
+  .lyrics-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .song-card.open .lyrics-panel { max-height: 900px; }
+
+  .lyrics-inner {
+    padding: 0 1.3rem 1.5rem 4.2rem;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 1.2rem;
+  }
+
+  .lyrics-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.88rem;
+    line-height: 2;
+    color: #6a6058;
+    white-space: pre-line;
+  }
+
+  .lyrics-line-group { margin-bottom: 1.2rem; }
+  .lyrics-highlight { color: #9a8870; font-style: italic; }
+
+  .footer {
+    text-align: center;
+    padding: 3rem 2rem 1rem;
+    font-size: 0.78rem;
+    color: #3a3028;
+    letter-spacing: 1px;
+  }
+</style>
+
+<div class="page">
+  <div class="hero">
+
+    <!-- Full-bleed photo -->
+    <div class="hero-photo-wrap">
+      <img src="gnat_photo.jpg" alt="Gnat Lalrinchhana performing live">
+      <div class="hero-text-overlay">
+        <div class="hero-badge">Mizo Artist · In Memoriam</div>
+        <h1 class="hero-name">Gnat Lalrinchhana</h1>
+        <p class="hero-tagline">Voice of Mizoram</p>
+      </div>
+    </div>
+
+    <!-- Bio below photo -->
+    <div class="hero-below">
+      <div class="hero-divider"></div>
+      <p class="hero-bio">
+        A beloved Mizo singer whose soulful voice touched the hearts of an entire generation.
+        Gifted not only with music but also an accomplished Muay Thai athlete,
+        Gnat left behind a timeless collection of melodies that continue to resonate across Mizoram.
+      </p>
+      <div class="rip-tag">✦ 1989 – 2013 &nbsp;·&nbsp; Forever In Our Hearts</div>
+    </div>
+  </div>
+
+  <div class="section-label">Songs &amp; Lyrics</div>
+
+  <div class="songs-grid" id="songs">
+
+    <div class="song-card" onclick="toggle(this)">
+      <div class="song-header">
+        <div class="thumb thumb-1"><div class="thumb-inner"><span class="thumb-note">♩</span><span class="thumb-num">01</span></div></div>
+        <div class="song-meta">
+          <div class="song-title">I Tel Lo Chuan</div>
+          <div class="song-subtitle">Mizo Love Song · 2012</div>
+        </div>
+        <div class="song-toggle"><div class="toggle-icon"></div></div>
+      </div>
+      <div class="lyrics-panel"><div class="lyrics-inner">
+        <div class="lyrics-line-group lyrics-text">In vangkhawpui laitualah
+Chhingkhual rawn changin lungrunpui
+Karah ka lo dawn ngai lo
+Nang nen ti ema hmangaihna</div>
+        <div class="lyrics-line-group lyrics-text lyrics-highlight">A rei lo em, kan hlimlai ni
+Tunah erawh lenna tlang a dang leh si
+Lung ka vai ruai e, i tel lo chuan
+Aw, tleitir lenmawi</div>
+        <div class="lyrics-line-group lyrics-text">Zantiang chhawrthla eng hnuaiah
+Ka dawn vawng vawng thin hlimlai ni
+Duh te'n i tang bei lai zan
+Nghilhni awm thei hian ka mawi lo</div>
+        <div class="lyrics-line-group lyrics-text lyrics-highlight">Lenna tlang dang thin mahse
+Min nghilh bik lo'ng che lungrun
+Nang nen biahthu kan hlan zawng
+Vawng dun zel ang aw kumtluangin</div>
+      </div></div>
+    </div>
+
+    <div class="song-card" onclick="toggle(this)">
+      <div class="song-header">
+        <div class="thumb thumb-2"><div class="thumb-inner"><span class="thumb-note">♪</span><span class="thumb-num">02</span></div></div>
+        <div class="song-meta">
+          <div class="song-title">Ngaihzual</div>
+          <div class="song-subtitle">Mizo Classic · 2005</div>
+        </div>
+        <div class="song-toggle"><div class="toggle-icon"></div></div>
+      </div>
+      <div class="lyrics-panel"><div class="lyrics-inner">
+        <div class="lyrics-line-group lyrics-text">Bawihte, i zun leng ngaiin
+Laikhum zawlah tlaikhua ka var thrin
+Mualzapui kar danah lengin
+Sakhmel tawng lo vin</div>
+        <div class="lyrics-line-group lyrics-text lyrics-highlight">Chhingmitthla an i cham reng thin e
+Thinlai ruk an i cham reng mai
+Dawnin a na ngei e!
+Di ngaih lunglen ka tuar thiam lo</div>
+        <div class="lyrics-line-group lyrics-text">Suihlung a phang thin e
+Lengdang min chhai san lul suh aw, ngaihzual
+I zun leng ngaiin eng dang ka dawn thei lo
+Sakhmel tawn nan, ka tuanna tlang atang hian e</div>
+        <div class="lyrics-line-group lyrics-text lyrics-highlight">Engtin min ngai ve che maw?
+I thinlai rukah ka cham ve thin em?
+Kei zawng i zunah chhawl iangin
+Aw, ka uai reng si</div>
+        <div class="lyrics-line-group lyrics-text">Nghilh ni reng i awm thei mawlh si lo
+Thinlai ruka'n i cham reng mai
+I tawnah biahthu ka hlan zawngte nghilh lo la
+Lengdang tang bel mai lo vin min nghak hram rawh aw</div>
+      </div></div>
+    </div>
+
+    <div class="song-card" onclick="toggle(this)">
+      <div class="song-header">
+        <div class="thumb thumb-3"><div class="thumb-inner"><span class="thumb-note">♫</span><span class="thumb-num">03</span></div></div>
+        <div class="song-meta">
+          <div class="song-title">Duhaisam Tikimtu</div>
+          <div class="song-subtitle">Mizo Song · 2010</div>
+        </div>
+        <div class="song-toggle"><div class="toggle-icon"></div></div>
+      </div>
+      <div class="lyrics-panel"><div class="lyrics-inner">
+        <div class="lyrics-line-group lyrics-text">Nang ngei hi duhaisam tikimtu
+Hmangaihna par tin kan tlan dun kha
+Tunah lunglai herin min liam san
+Run rempui tur i tawng ta em ni</div>
+        <div class="lyrics-line-group lyrics-text lyrics-highlight">Hetiang rapthlak taka min kalsan
+Hre lo vin nge ka nih ang
+Ka lungrunna chu min hre lo em
+Duhaisam tikimtu</div>
+        <div class="lyrics-line-group lyrics-text">Ka hmangaihna pek tawh ang u
+Nang ngei tan ka chawimawi
+I nghilh dawn loh biahthu pek che
+Ka thinlung tawn atangin</div>
+      </div></div>
+    </div>
+
+    <div class="song-card" onclick="toggle(this)">
+      <div class="song-header">
+        <div class="thumb thumb-4"><div class="thumb-inner"><span class="thumb-note">♬</span><span class="thumb-num">04</span></div></div>
+        <div class="song-meta">
+          <div class="song-title">Zan Lalnu</div>
+          <div class="song-subtitle">Mizo Song · 2011</div>
+        </div>
+        <div class="song-toggle"><div class="toggle-icon"></div></div>
+      </div>
+      <div class="lyrics-panel"><div class="lyrics-inner">
+        <div class="lyrics-line-group lyrics-text">Han thlir ve teh u
+Chhawrh thlapui eng ruai khi
+Run tin en in
+A her liai thang van sang an</div>
+        <div class="lyrics-line-group lyrics-text lyrics-highlight">Theih chang se aw
+Kawp lai di nen
+A eng mawi la
+Zan lalnu hi min en ve ang</div>
+        <div class="lyrics-line-group lyrics-text">Van lamah thawn
+Chhawrh thlapui eng mawi chu
+Ka lungrun nen
+A inchham lua em em mai</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div>♦ &nbsp; A hla te hi mizo thinlungah a chuai ngei lo ang &nbsp; ♦</div>
+    <div style="margin-top: 8px; font-size: 10px; letter-spacing: 2px; color: #2a2018;">HIS SONGS LIVE ON</div>
+  </div>
+</div>
+
+<script>
+function toggle(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.song-card.open').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+</script>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Gnat Lalrinchhana – Voice of Mizoram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #0a0a0a;
+      color: #e8e0d4;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    .hero {
+      position: relative;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      width: 100%;
+      height: clamp(300px, 80vw, 540px);
+      overflow: hidden;
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      display: block;
+      filter: grayscale(25%) contrast(1.08) brightness(0.7);
+    }
+
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0.5)  0%,
+        rgba(10,10,10,0.0) 28%,
+        rgba(10,10,10,0.0) 52%,
+        rgba(10,10,10,0.95) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(55,25,8,0.15);
+      z-index: 2;
+    }
+
+    .hero-text-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 10;
+      padding: clamp(1.2rem, 4vw, 2.5rem) clamp(1rem, 5vw, 2rem) clamp(1.5rem, 4vw, 2.2rem);
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: clamp(9px, 2.5vw, 11px);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #b09070;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 8.5vw, 4.6rem);
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      line-height: 1.05;
+      color: #f5ede0;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.9);
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      color: #9a8060;
+    }
+
+    .hero-below {
+      background: radial-gradient(ellipse at top, #130f0b 0%, #0a0a0a 65%);
+      padding: clamp(1.5rem, 5vw, 2.2rem) clamp(1.2rem, 6vw, 2rem) clamp(1.8rem, 5vw, 2.5rem);
+      text-align: center;
+    }
+
+    .hero-divider {
+      width: 56px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #8a7255, transparent);
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-bio {
+      max-width: 500px;
+      margin: 0 auto;
+      font-size: clamp(0.83rem, 3.5vw, 0.93rem);
+      line-height: 1.85;
+      color: #6a5e52;
+    }
+
+    .rip-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #120e0a;
+      border: 1px solid #2a2018;
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: clamp(9px, 2.5vw, 11px);
+      color: #6a5a48;
+      letter-spacing: 1px;
+      margin-top: 1.3rem;
+      white-space: nowrap;
+    }
+
+    /* ══════════════════════════════
+       SONGS
+    ══════════════════════════════ */
+    .section-label {
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #5a4e42;
+      padding: 2.5rem 1.5rem 1.3rem;
+      font-weight: 700;
+    }
+
+    .songs-grid {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 clamp(0.75rem, 4vw, 1.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .song-card {
+      border: 1px solid #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0e0e0e;
+      transition: border-color 0.25s ease;
+      will-change: border-color;
+    }
+
+    .song-card:active { border-color: #3a3028; }
+    .song-card.open   { border-color: #4a3828; }
+
+    .song-header {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.7rem, 3vw, 1.2rem);
+      padding: clamp(0.85rem, 3vw, 1.1rem) clamp(0.85rem, 3vw, 1.3rem);
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      min-height: 70px;
+    }
+
+    .thumb {
+      width: clamp(44px, 12vw, 54px);
+      height: clamp(44px, 12vw, 54px);
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .thumb-1 { background: #1a120c; color: #8a6a44; border: 1px solid #2a1e14; }
+    .thumb-2 { background: #0c1218; color: #4a7a9a; border: 1px solid #142030; }
+    .thumb-3 { background: #0e140e; color: #5a8a5a; border: 1px solid #182414; }
+    .thumb-4 { background: #180c12; color: #9a5a7a; border: 1px solid #28101c; }
+
+    .thumb-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumb-note { font-size: 18px; line-height: 1; font-family: 'Playfair Display', serif; }
+    .thumb-num {
+      font-size: 8px;
+      letter-spacing: 1px;
+      opacity: 0.45;
+      margin-top: 3px;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .song-meta { flex: 1; min-width: 0; }
+
+    .song-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 4.5vw, 1.15rem);
+      font-weight: 600;
+      color: #e0d8cc;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .song-subtitle {
+      font-size: clamp(0.72rem, 2.8vw, 0.8rem);
+      color: #5a5048;
+      letter-spacing: 0.5px;
+    }
+
+    .song-toggle {
+      width: 32px; height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      border: 1px solid #2a2a2a;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.25s ease, background 0.25s ease;
+      background: transparent;
+    }
+
+    .song-card.open .song-toggle {
+      border-color: #5a4030;
+      background: #1a1008;
+    }
+
+    .toggle-icon {
+      width: 10px; height: 10px;
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .song-card.open .toggle-icon { transform: rotate(45deg); }
+
+    .toggle-icon::before,
+    .toggle-icon::after {
+      content: '';
+      position: absolute;
+      background: #8a7255;
+      border-radius: 1px;
+    }
+    .toggle-icon::before { width: 10px; height: 1.5px; top: 50%; left: 0; transform: translateY(-50%); }
+    .toggle-icon::after  { width: 1.5px; height: 10px; left: 50%; top: 0; transform: translateX(-50%); }
+
+    /* Smooth accordion */
+    .lyrics-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.42s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .song-card.open .lyrics-panel {
+      grid-template-rows: 1fr;
+    }
+
+    .lyrics-overflow {
+      overflow: hidden;
+    }
+
+    .lyrics-inner {
+      padding: 1.2rem clamp(1rem, 4vw, 1.5rem) 1.6rem clamp(1rem, 4vw, 1.3rem);
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .lyrics-text {
+      font-size: clamp(0.82rem, 3.2vw, 0.88rem);
+      line-height: 2.1;
+      color: #6a6058;
+      white-space: pre-line;
+    }
+
+    .lyrics-line-group { margin-bottom: 1.3rem; }
+    .lyrics-line-group:last-child { margin-bottom: 0; }
+    .lyrics-highlight { color: #9a8870; font-style: italic; }
+
+    /* ══════════════════════════════
+       GALLERY
+    ══════════════════════════════ */
+    .gallery-section {
+      margin-top: 1rem;
+      border-top: 1px solid #1e1a14;
+      border-bottom: 1px solid #1e1a14;
+      background: radial-gradient(ellipse at top, #0e0b08 0%, #0a0a0a 70%);
+      overflow: hidden;
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: clamp(1.5rem,5vw,2.5rem) clamp(1rem,5vw,2rem) 1.2rem;
+      border-bottom: 1px solid #1a1510;
+    }
+
+    .gallery-title-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #c8b898;
+    }
+
+    .gallery-hint {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .gallery-hint span {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #3a3028;
+      font-weight: 700;
+    }
+
+    .gallery-hint span::before {
+      content: '·';
+      margin-right: 5px;
+      color: #5a4030;
+    }
+
+    .gallery-canvas-wrap {
+      width: 100%;
+      height: clamp(280px, 60vw, 500px);
+      overflow: hidden;
+      cursor: grab;
+      position: relative;
+      background: #080806;
+      touch-action: none;
+    }
+
+    .gallery-canvas-wrap.grabbing { cursor: grabbing; }
+
+    #gnat-world {
+      position: absolute;
+      top: 0; left: 0;
+      transform-origin: 0 0;
+      will-change: transform;
+    }
+
+    .g-cell {
+      position: absolute;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid #1e1810;
+    }
+
+    .g-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(40%) contrast(1.05) brightness(0.75) sepia(20%);
+      transition: filter 0.4s ease;
+    }
+
+    .g-cell-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 8px 10px;
+      background: linear-gradient(transparent, rgba(5,3,2,0.8));
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .g-cell:hover img         { filter: grayscale(15%) contrast(1.08) brightness(0.88) sepia(10%); }
+    .g-cell:hover .g-cell-overlay { opacity: 1; }
+
+    .g-cell-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 10px;
+      font-style: italic;
+      color: #9a8060;
+      letter-spacing: 1px;
+    }
+
+    .gallery-zoom-controls {
+      position: absolute;
+      bottom: 14px; right: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 10;
+    }
+
+    .gzc-btn {
+      width: 34px; height: 34px;
+      border: 1px solid #2a2018;
+      background: rgba(14,11,8,0.9);
+      color: #6a5a48;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      font-family: 'Lato', sans-serif;
+      transition: border-color 0.2s, color 0.2s;
+      touch-action: manipulation;
+    }
+
+    .gzc-btn:active { border-color: #5a4030; color: #b09070; }
+
+    .gallery-zoom-level {
+      font-size: 9px;
+      color: #3a3028;
+      text-align: center;
+      letter-spacing: 1px;
+      margin-top: 2px;
+      font-weight: 700;
+    }
+
+    .gallery-minimap {
+      position: absolute;
+      bottom: 14px; left: 14px;
+      width: 70px; height: 48px;
+      border: 1px solid #2a2018;
+      background: rgba(10,8,6,0.85);
+      border-radius: 3px;
+      overflow: hidden;
+      opacity: 0.65;
+    }
+
+    .gallery-minimap-vp {
+      position: absolute;
+      border: 1.5px solid #5a4030;
+      border-radius: 1px;
+      pointer-events: none;
+    }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    .footer {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      font-size: clamp(0.7rem, 2.5vw, 0.78rem);
+      color: #3a3028;
+      letter-spacing: 1px;
+    }
+
+    /* ══════════════════════════════
+       SMOOTH SCROLL HINT
+    ══════════════════════════════ */
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      .footer { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-photo-wrap">
+    <img src="gnat_photo.jpg" alt="Gnat Lalrinchhana performing live">
+    <div class="hero-text-overlay">
+      <div class="hero-badge">Mizo Artist · In Memoriam</div>
+      <h1 class="hero-name">Gnat Lalrinchhana</h1>
+      <p class="hero-tagline">Voice of Mizoram</p>
+    </div>
+  </div>
+  <div class="hero-below">
+    <div class="hero-divider"></div>
+    <p class="hero-bio">
+      A beloved Mizo singer whose soulful voice touched the hearts of an entire generation.
+      Gifted not only with music but also an accomplished Muay Thai athlete,
+      Gnat left behind a timeless collection of melodies that continue to resonate across Mizoram.
+    </p>
+    <div class="rip-tag">✦ 1989 – 2013 &nbsp;·&nbsp; Forever In Our Hearts</div>
+  </div>
+</div>
+
+<div class="section-label">Songs &amp; Lyrics</div>
+
+<div class="songs-grid">
+
+  <div class="song-card">
+    <div class="song-header" onclick="toggle(this.parentElement)">
+      <div class="thumb thumb-1"><div class="thumb-inner"><span class="thumb-note">♩</span><span class="thumb-num">01</span></div></div>
+      <div class="song-meta">
+        <div class="song-title">I Tel Lo Chuan</div>
+        <div class="song-subtitle">Mizo Love Song · 2012</div>
+      </div>
+      <div class="song-toggle"><div class="toggle-icon"></div></div>
+    </div>
+    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
+      <div class="lyrics-line-group lyrics-text">In vangkhawpui laitualah
+Chhingkhual rawn changin lungrunpui
+Karah ka lo dawn ngai lo
+Nang nen ti ema hmangaihna</div>
+      <div class="lyrics-line-group lyrics-text lyrics-highlight">A rei lo em, kan hlimlai ni
+Tunah erawh lenna tlang a dang leh si
+Lung ka vai ruai e, i tel lo chuan
+Aw, tleitir lenmawi</div>
+      <div class="lyrics-line-group lyrics-text">Zantiang chhawrthla eng hnuaiah
+Ka dawn vawng vawng thin hlimlai ni
+Duh te'n i tang bei lai zan
+Nghilhni awm thei hian ka mawi lo</div>
+      <div class="lyrics-line-group lyrics-text lyrics-highlight">Lenna tlang dang thin mahse
+Min nghilh bik lo'ng che lungrun
+Nang nen biahthu kan hlan zawng
+Vawng dun zel ang aw kumtluangin</div>
+    </div></div></div>
+  </div>
+
+  <div class="song-card">
+    <div class="song-header" onclick="toggle(this.parentElement)">
+      <div class="thumb thumb-2"><div class="thumb-inner"><span class="thumb-note">♪</span><span class="thumb-num">02</span></div></div>
+      <div class="song-meta">
+        <div class="song-title">Ngaihzual</div>
+        <div class="song-subtitle">Mizo Classic · 2005</div>
+      </div>
+      <div class="song-toggle"><div class="toggle-icon"></div></div>
+    </div>
+    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
+      <div class="lyrics-line-group lyrics-text">Bawihte, i zun leng ngaiin
+Laikhum zawlah tlaikhua ka var thrin
+Mualzapui kar danah lengin
+Sakhmel tawng lo vin</div>
+      <div class="lyrics-line-group lyrics-text lyrics-highlight">Chhingmitthla an i cham reng thin e
+Thinlai ruk an i cham reng mai
+Dawnin a na ngei e!
+Di ngaih lunglen ka tuar thiam lo</div>
+      <div class="lyrics-line-group lyrics-text">Suihlung a phang thin e
+Lengdang min chhai san lul suh aw, ngaihzual
+I zun leng ngaiin eng dang ka dawn thei lo
+Sakhmel tawn nan, ka tuanna tlang atang hian e</div>
+      <div class="lyrics-line-group lyrics-text lyrics-highlight">Engtin min ngai ve che maw?
+I thinlai rukah ka cham ve thin em?
+Kei zawng i zunah chhawl iangin
+Aw, ka uai reng si</div>
+      <div class="lyrics-line-group lyrics-text">Nghilh ni reng i awm thei mawlh si lo
+Thinlai ruka'n i cham reng mai
+I tawnah biahthu ka hlan zawngte nghilh lo la
+Lengdang tang bel mai lo vin min nghak hram rawh aw</div>
+    </div></div></div>
+  </div>
+
+  <div class="song-card">
+    <div class="song-header" onclick="toggle(this.parentElement)">
+      <div class="thumb thumb-3"><div class="thumb-inner"><span class="thumb-note">♫</span><span class="thumb-num">03</span></div></div>
+      <div class="song-meta">
+        <div class="song-title">Duhaisam Tikimtu</div>
+        <div class="song-subtitle">Mizo Song · 2010</div>
+      </div>
+      <div class="song-toggle"><div class="toggle-icon"></div></div>
+    </div>
+    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
+      <div class="lyrics-line-group lyrics-text">Nang ngei hi duhaisam tikimtu
+Hmangaihna par tin kan tlan dun kha
+Tunah lunglai herin min liam san
+Run rempui tur i tawng ta em ni</div>
+      <div class="lyrics-line-group lyrics-text lyrics-highlight">Hetiang rapthlak taka min kalsan
+Hre lo vin nge ka nih ang
+Ka lungrunna chu min hre lo em
+Duhaisam tikimtu</div>
+      <div class="lyrics-line-group lyrics-text">Ka hmangaihna pek tawh ang u
+Nang ngei tan ka chawimawi
+I nghilh dawn loh biahthu pek che
+Ka thinlung tawn atangin</div>
+    </div></div></div>
+  </div>
+
+  <div class="song-card">
+    <div class="song-header" onclick="toggle(this.parentElement)">
+      <div class="thumb thumb-4"><div class="thumb-inner"><span class="thumb-note">♬</span><span class="thumb-num">04</span></div></div>
+      <div class="song-meta">
+        <div class="song-title">Zan Lalnu</div>
+        <div class="song-subtitle">Mizo Song · 2011</div>
+      </div>
+      <div class="song-toggle"><div class="toggle-icon"></div></div>
+    </div>
+    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
+      <div class="lyrics-line-group lyrics-text">Han thlir ve teh u
+Chhawrh thlapui eng ruai khi
+Run tin en in
+A her liai thang van sang an</div>
+      <div class="lyrics-line-group lyrics-text lyrics-highlight">Theih chang se aw
+Kawp lai di nen
+A eng mawi la
+Zan lalnu hi min en ve ang</div>
+      <div class="lyrics-line-group lyrics-text">Van lamah thawn
+Chhawrh thlapui eng mawi chu
+Ka lungrun nen
+A inchham lua em em mai</div>
+    </div></div></div>
+  </div>
+
+</div>
+
+<!-- GALLERY -->
+<div class="section-label" style="padding-top:3.5rem;">Photographs &amp; Memories</div>
+
+<div class="gallery-section">
+  <div class="gallery-header">
+    <div class="gallery-title-text">Moments in Time</div>
+    <div class="gallery-hint">
+      <span>Drag to explore</span>
+      <span>Pinch to zoom</span>
+    </div>
+  </div>
+  <div class="gallery-canvas-wrap" id="gnat-gallery">
+    <div id="gnat-world"></div>
+    <div class="gallery-zoom-controls">
+      <button class="gzc-btn" id="gbtn-in" aria-label="Zoom in">+</button>
+      <button class="gzc-btn" id="gbtn-out" aria-label="Zoom out">−</button>
+      <button class="gzc-btn" id="gbtn-reset" aria-label="Reset" style="font-size:11px">⊙</button>
+      <div class="gallery-zoom-level" id="gzoom-level">100%</div>
+    </div>
+    <div class="gallery-minimap" id="gminimap">
+      <div class="gallery-minimap-vp" id="gminimap-vp"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div>♦ &nbsp; A hla te hi mizo thinlungah a chuai ngei lo ang &nbsp; ♦</div>
+  <div style="margin-top:8px;font-size:10px;letter-spacing:2px;color:#2a2018;">HIS SONGS LIVE ON</div>
+</div>
+
+<script>
+/* ── ACCORDION – smooth grid trick ── */
+function toggle(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.song-card.open').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+
+/* ── GALLERY ── */
+(function () {
+  const photos = [
+    {w:280,h:200,label:"On Stage"},
+    {w:200,h:280,label:"Backstage"},
+    {w:260,h:190,label:"Recording"},
+    {w:200,h:260,label:"Portrait"},
+    {w:320,h:200,label:"Live Performance"},
+    {w:200,h:200,label:"At Rest"},
+    {w:270,h:210,label:"Studio"},
+    {w:210,h:290,label:"Mizoram"},
+    {w:290,h:195,label:"Friends"},
+    {w:195,h:270,label:"Reflection"},
+    {w:250,h:230,label:"Youth"},
+    {w:230,h:195,label:"The Voice"},
+  ];
+
+  const imgSources = [
+    "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=320&h=280&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=280&h=320&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=300&h=280&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=280&h=320&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=340&h=280&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1519683109079-d5f539e1542f?w=300&h=280&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=280&h=320&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=310&h=280&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1499566727020-881da4f4e3d1?w=280&h=310&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=270&h=260&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1504276048855-f3d60e69632f?w=280&h=260&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=310&h=270&fit=crop&auto=format",
+  ];
+
+  // Responsive column count
+  function getCols() { return window.innerWidth < 480 ? 2 : window.innerWidth < 768 ? 3 : 4; }
+
+  const world  = document.getElementById('gnat-world');
+  const wrap   = document.getElementById('gnat-gallery');
+  const mmEl   = document.getElementById('gminimap');
+  const mmVP   = document.getElementById('gminimap-vp');
+  const zoomLbl= document.getElementById('gzoom-level');
+
+  let totalW = 0, totalH = 0;
+
+  function buildGrid() {
+    world.innerHTML = '';
+    const COLS  = getCols();
+    const GAP   = 10;
+    const PAD   = 16;
+    const COL_W = Math.floor((wrap.clientWidth - PAD*2 - GAP*(COLS-1)) / COLS);
+    const colH  = new Array(COLS).fill(PAD);
+    const colX  = Array.from({length:COLS}, (_,i) => PAD + i*(COL_W+GAP));
+
+    photos.forEach((p, i) => {
+      const col = i % COLS;
+      const x   = colX[col];
+      const y   = colH[col];
+      const sh  = Math.round(p.h * COL_W / p.w);
+
+      const div = document.createElement('div');
+      div.className = 'g-cell';
+      div.style.cssText = `left:${x}px;top:${y}px;width:${COL_W}px;height:${sh}px`;
+
+      const img = document.createElement('img');
+      img.src = imgSources[i % imgSources.length];
+      img.alt = p.label;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+
+      const ov  = document.createElement('div');
+      ov.className = 'g-cell-overlay';
+      ov.innerHTML = `<div class="g-cell-label">${p.label}</div>`;
+
+      div.appendChild(img);
+      div.appendChild(ov);
+      world.appendChild(div);
+
+      colH[col] += sh + GAP;
+    });
+
+    totalW = wrap.clientWidth;
+    totalH = Math.max(...colH) + PAD;
+    world.style.width  = totalW + 'px';
+    world.style.height = totalH + 'px';
+  }
+
+  let ox = 0, oy = 0, scale = 1;
+  const MIN_S = 0.4, MAX_S = 3;
+
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+
+  function applyT(animate) {
+    const ww = wrap.clientWidth, wh = wrap.clientHeight;
+    ox = clamp(ox, Math.min(0, ww - totalW * scale), 0);
+    oy = clamp(oy, Math.min(0, wh - totalH * scale), 0);
+    world.style.transition = animate ? 'transform 0.3s ease' : 'none';
+    world.style.transform  = `translate(${ox}px,${oy}px) scale(${scale})`;
+    zoomLbl.textContent    = Math.round(scale * 100) + '%';
+
+    const ms  = mmEl.clientWidth  / totalW;
+    const mh  = mmEl.clientHeight / totalH;
+    const vpW = Math.min(ww/scale, totalW) * ms;
+    const vpH = Math.min(wh/scale, totalH) * mh;
+    const vpX = -ox/scale * ms;
+    const vpY = -oy/scale * mh;
+    mmVP.style.cssText = `left:${clamp(vpX,0,mmEl.clientWidth-vpW)}px;top:${clamp(vpY,0,mmEl.clientHeight-vpH)}px;width:${vpW}px;height:${vpH}px`;
+  }
+
+  // Mouse drag
+  let dragging=false, sx=0, sy=0, sox=0, soy=0;
+  wrap.addEventListener('mousedown', e => {
+    dragging=true; sx=e.clientX; sy=e.clientY; sox=ox; soy=oy;
+    wrap.classList.add('grabbing'); e.preventDefault();
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    ox = sox+(e.clientX-sx); oy = soy+(e.clientY-sy); applyT();
+  });
+  window.addEventListener('mouseup', () => { dragging=false; wrap.classList.remove('grabbing'); });
+
+  // Wheel zoom
+  wrap.addEventListener('wheel', e => {
+    e.preventDefault();
+    const r  = wrap.getBoundingClientRect();
+    const mx = e.clientX-r.left, my = e.clientY-r.top;
+    const ns = clamp(scale*(1-e.deltaY*0.001), MIN_S, MAX_S);
+    ox = mx-(mx-ox)*(ns/scale); oy = my-(my-oy)*(ns/scale);
+    scale=ns; applyT();
+  }, {passive:false});
+
+  // Touch (drag + pinch) — passive:false so we can preventDefault
+  let t2=null, initDist=1, initScale=1, initOx=0, initOy=0, pinchMidX=0, pinchMidY=0;
+  let tSx=0, tSy=0, tSox=0, tSoy=0;
+
+  wrap.addEventListener('touchstart', e => {
+    if (e.touches.length===1) {
+      tSx=e.touches[0].clientX; tSy=e.touches[0].clientY; tSox=ox; tSoy=oy; t2=false;
+    } else if (e.touches.length===2) {
+      t2=true;
+      initDist  = Math.hypot(e.touches[1].clientX-e.touches[0].clientX, e.touches[1].clientY-e.touches[0].clientY);
+      initScale = scale; initOx=ox; initOy=oy;
+      const r = wrap.getBoundingClientRect();
+      pinchMidX = (e.touches[0].clientX+e.touches[1].clientX)/2 - r.left;
+      pinchMidY = (e.touches[0].clientY+e.touches[1].clientY)/2 - r.top;
+    }
+    e.preventDefault();
+  }, {passive:false});
+
+  wrap.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (e.touches.length===1 && !t2) {
+      ox = tSox+(e.touches[0].clientX-tSx);
+      oy = tSoy+(e.touches[0].clientY-tSy);
+      applyT();
+    } else if (e.touches.length===2) {
+      const d  = Math.hypot(e.touches[1].clientX-e.touches[0].clientX, e.touches[1].clientY-e.touches[0].clientY);
+      const ns = clamp(initScale*(d/initDist), MIN_S, MAX_S);
+      ox = pinchMidX-(pinchMidX-initOx)*(ns/initScale);
+      oy = pinchMidY-(pinchMidY-initOy)*(ns/initScale);
+      scale=ns; applyT();
+    }
+  }, {passive:false});
+
+  wrap.addEventListener('touchend', e => { if (e.touches.length<2) t2=false; });
+
+  function zoomAt(f) {
+    const mx=wrap.clientWidth/2, my=wrap.clientHeight/2;
+    const ns=clamp(scale*f, MIN_S, MAX_S);
+    ox=mx-(mx-ox)*(ns/scale); oy=my-(my-oy)*(ns/scale);
+    scale=ns; applyT(true);
+  }
+
+  document.getElementById('gbtn-in').onclick    = () => zoomAt(1.3);
+  document.getElementById('gbtn-out').onclick   = () => zoomAt(0.75);
+  document.getElementById('gbtn-reset').onclick = () => { scale=1; ox=0; oy=0; applyT(true); };
+
+  buildGrid();
+  applyT();
+
+  window.addEventListener('resize', () => { buildGrid(); applyT(); });
+})();
+</script>
+</body>
+</html>

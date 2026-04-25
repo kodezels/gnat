@@ -9,10 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box; margin: 0; padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
       font-family: 'Lato', sans-serif;
@@ -23,248 +20,234 @@
 
     /* ── HERO ── */
     .hero { position: relative; border-bottom: 1px solid #2a2a2a; }
-    .hero-photo-wrap {
-      position: relative; width: 100%;
-      height: clamp(300px, 80vw, 540px); overflow: hidden;
-    }
-    .hero-photo-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      object-position: center 12%; display: block;
-      filter: grayscale(25%) contrast(1.08) brightness(0.7);
-    }
+    .hero-photo-wrap { position: relative; width: 100%; height: clamp(300px, 80vw, 540px); overflow: hidden; }
+    .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; display: block; filter: grayscale(25%) contrast(1.08) brightness(0.7); }
     .hero-photo-wrap::before {
-      content:''; position:absolute; inset:0;
-      background: linear-gradient(to bottom,
-        rgba(10,10,10,0.5) 0%, rgba(10,10,10,0) 28%,
-        rgba(10,10,10,0) 52%, rgba(10,10,10,0.95) 100%);
-      z-index:1;
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0) 28%, rgba(10,10,10,0) 52%, rgba(10,10,10,0.95) 100%);
     }
-    .hero-photo-wrap::after {
-      content:''; position:absolute; inset:0;
-      background: rgba(55,25,8,0.15); z-index:2;
-    }
+    .hero-photo-wrap::after { content: ''; position: absolute; inset: 0; background: rgba(55,25,8,0.15); z-index: 2; }
     .hero-text-overlay {
-      position:absolute; bottom:0; left:0; right:0; z-index:10;
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 10; text-align: center;
       padding: clamp(1.2rem,4vw,2.5rem) clamp(1rem,5vw,2rem) clamp(1.5rem,4vw,2.2rem);
-      text-align:center;
     }
-    .hero-badge {
-      display:inline-block; font-size:clamp(9px,2.5vw,11px);
-      letter-spacing:3px; text-transform:uppercase;
-      color:#b09070; margin-bottom:0.6rem; font-weight:700;
-    }
-    .hero-name {
-      font-family:'Playfair Display',serif;
-      font-size:clamp(2rem,8.5vw,4.6rem); font-weight:600;
-      letter-spacing:-0.5px; line-height:1.05; color:#f5ede0;
-      margin-bottom:0.3rem; text-shadow:0 2px 24px rgba(0,0,0,0.9);
-    }
-    .hero-tagline {
-      font-family:'Playfair Display',serif; font-style:italic;
-      font-size:clamp(0.9rem,3.5vw,1.1rem); color:#9a8060;
-    }
-    .hero-below {
-      background: radial-gradient(ellipse at top,#130f0b 0%,#0a0a0a 65%);
-      padding: clamp(1.5rem,5vw,2.2rem) clamp(1.2rem,6vw,2rem) clamp(1.8rem,5vw,2.5rem);
-      text-align:center;
-    }
-    .hero-divider {
-      width:56px; height:1px;
-      background: linear-gradient(to right,transparent,#8a7255,transparent);
-      margin:0 auto 1.5rem;
-    }
-    .hero-bio {
-      max-width:500px; margin:0 auto;
-      font-size:clamp(0.83rem,3.5vw,0.93rem); line-height:1.85; color:#6a5e52;
-    }
-    .rip-tag {
-      display:inline-flex; align-items:center; gap:6px;
-      background:#120e0a; border:1px solid #2a2018; border-radius:20px;
-      padding:5px 16px; font-size:clamp(9px,2.5vw,11px);
-      color:#6a5a48; letter-spacing:1px; margin-top:1.3rem; white-space:nowrap;
-    }
+    .hero-badge { display: inline-block; font-size: clamp(9px,2.5vw,11px); letter-spacing: 3px; text-transform: uppercase; color: #b09070; margin-bottom: 0.6rem; font-weight: 700; }
+    .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2rem,8.5vw,4.6rem); font-weight: 600; letter-spacing: -0.5px; line-height: 1.05; color: #f5ede0; margin-bottom: 0.3rem; text-shadow: 0 2px 24px rgba(0,0,0,0.9); }
+    .hero-tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(0.9rem,3.5vw,1.1rem); color: #9a8060; }
+    .hero-below { background: radial-gradient(ellipse at top,#130f0b 0%,#0a0a0a 65%); padding: clamp(1.5rem,5vw,2.2rem) clamp(1.2rem,6vw,2rem) clamp(1.8rem,5vw,2.5rem); text-align: center; }
+    .hero-divider { width: 56px; height: 1px; background: linear-gradient(to right,transparent,#8a7255,transparent); margin: 0 auto 1.5rem; }
+    .hero-bio { max-width: 500px; margin: 0 auto; font-size: clamp(0.83rem,3.5vw,0.93rem); line-height: 1.85; color: #6a5e52; }
+    .rip-tag { display: inline-flex; align-items: center; gap: 6px; background: #120e0a; border: 1px solid #2a2018; border-radius: 20px; padding: 5px 16px; font-size: clamp(9px,2.5vw,11px); color: #6a5a48; letter-spacing: 1px; margin-top: 1.3rem; white-space: nowrap; }
 
     /* ── SECTION LABEL ── */
-    .section-label {
-      text-align:center; font-size:10px; letter-spacing:4px;
-      text-transform:uppercase; color:#5a4e42;
-      padding:2.5rem 1.5rem 1.3rem; font-weight:700;
+    .section-label { text-align: center; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #5a4e42; padding: 2.5rem 1.5rem 0.5rem; font-weight: 700; }
+
+    /* ══════════════════════════════
+       CAROUSEL
+    ══════════════════════════════ */
+    .carousel-section { padding: 1.5rem 0 3rem; position: relative; }
+
+    .carousel-track-outer {
+      overflow: hidden;
+      padding: 2rem 0 3rem;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+    }
+    .carousel-track-outer.dragging { cursor: grabbing; }
+
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      will-change: transform;
+      padding: 0 calc(50% - 120px);
     }
 
-    /* ── SONG CARDS ── */
-    .songs-grid {
-      max-width:700px; margin:0 auto;
-      padding:0 clamp(0.75rem,4vw,1.5rem);
-      display:flex; flex-direction:column; gap:8px;
-    }
-    .song-card {
-      border:1px solid #1e1e1e; border-radius:10px;
-      overflow:hidden; background:#0e0e0e;
-      transition:border-color 0.25s ease;
-    }
-    .song-card:active { border-color:#3a3028; }
-    .song-card.open   { border-color:#4a3828; }
-
-    .song-header {
-      display:flex; align-items:center;
-      gap:clamp(0.7rem,3vw,1.2rem);
-      padding:clamp(0.85rem,3vw,1.1rem) clamp(0.85rem,3vw,1.3rem);
-      cursor:pointer; user-select:none; -webkit-user-select:none;
-      touch-action:manipulation; min-height:70px;
-    }
-    .thumb {
-      width:clamp(44px,12vw,54px); height:clamp(44px,12vw,54px);
-      border-radius:6px; flex-shrink:0;
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
-    }
-    .thumb-1 { background:#1a120c; color:#8a6a44; border:1px solid #2a1e14; }
-    .thumb-2 { background:#0c1218; color:#4a7a9a; border:1px solid #142030; }
-    .thumb-3 { background:#0e140e; color:#5a8a5a; border:1px solid #182414; }
-    .thumb-4 { background:#180c12; color:#9a5a7a; border:1px solid #28101c; }
-    .thumb-5 { background:#141008; color:#9a8040; border:1px solid #28200c; }
-    .thumb-6 { background:#0a1418; color:#408090; border:1px solid #0c2028; }
-    .thumb-7 { background:#140e18; color:#7060a0; border:1px solid #201428; }
-    .thumb-8 { background:#181008; color:#b07040; border:1px solid #2c1c08; }
-    .thumb-9 { background:#0e1814; color:#40907a; border:1px solid #142820; }
-    .thumb-10{ background:#181418; color:#906080; border:1px solid #281828; }
-    .thumb-11{ background:#101818; color:#407888; border:1px solid #142428; }
-    .thumb-12{ background:#181010; color:#985050; border:1px solid #281414; }
-    .thumb-13{ background:#100c18; color:#706898; border:1px solid #1c1428; }
-
-    .thumb-inner { display:flex; flex-direction:column; align-items:center; justify-content:center; }
-    .thumb-note  { font-size:18px; line-height:1; font-family:'Playfair Display',serif; }
-    .thumb-num   { font-size:8px; letter-spacing:1px; opacity:0.45; margin-top:3px; }
-
-    .song-meta  { flex:1; min-width:0; }
-    .song-title {
-      font-family:'Playfair Display',serif;
-      font-size:clamp(1rem,4.5vw,1.15rem); font-weight:600;
-      color:#e0d8cc; margin-bottom:0.2rem;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-    }
-    .song-subtitle { font-size:clamp(0.72rem,2.8vw,0.8rem); color:#5a5048; letter-spacing:0.5px; }
-
-    .song-toggle {
-      width:32px; height:32px; min-width:32px; border-radius:50%;
-      border:1px solid #2a2a2a; display:flex; align-items:center;
-      justify-content:center; transition:border-color 0.25s,background 0.25s; background:transparent;
-    }
-    .song-card.open .song-toggle { border-color:#5a4030; background:#1a1008; }
-    .toggle-icon { width:10px; height:10px; position:relative; transition:transform 0.35s cubic-bezier(0.4,0,0.2,1); }
-    .song-card.open .toggle-icon { transform:rotate(45deg); }
-    .toggle-icon::before,.toggle-icon::after { content:''; position:absolute; background:#8a7255; border-radius:1px; }
-    .toggle-icon::before { width:10px; height:1.5px; top:50%; left:0; transform:translateY(-50%); }
-    .toggle-icon::after  { width:1.5px; height:10px; left:50%; top:0; transform:translateX(-50%); }
-
-    /* Accordion */
-    .lyrics-panel { display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.42s cubic-bezier(0.4,0,0.2,1); }
-    .song-card.open .lyrics-panel { grid-template-rows:1fr; }
-    .lyrics-overflow { overflow:hidden; }
-    .lyrics-inner {
-      padding:1.2rem clamp(1rem,4vw,1.5rem) 1.6rem clamp(1rem,4vw,1.3rem);
-      border-top:1px solid #1a1a1a;
+    /* ── SONG CARD ── */
+    .s-card {
+      flex-shrink: 0;
+      width: 220px;
+      min-height: 310px;
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+      transform: scale(0.82) translateY(12px);
+      opacity: 0.55;
     }
 
-    /* ── AUDIO PLAYER ── */
-    .audio-player {
-      display:flex; align-items:center; gap:10px;
-      background:#141010; border:1px solid #2a2018;
-      border-radius:8px; padding:10px 14px;
-      margin-bottom:1.3rem;
-    }
-    .ap-btn {
-      width:36px; height:36px; min-width:36px; border-radius:50%;
-      background:#1e1610; border:1px solid #3a2e20;
-      display:flex; align-items:center; justify-content:center;
-      cursor:pointer; touch-action:manipulation;
-      transition:background 0.2s, border-color 0.2s;
-      flex-shrink:0;
-    }
-    .ap-btn:active { background:#2a1e0c; border-color:#6a5030; }
-    .ap-btn svg { width:14px; height:14px; fill:#9a8060; flex-shrink:0; }
-
-    .ap-progress-wrap { flex:1; display:flex; flex-direction:column; gap:5px; min-width:0; }
-    .ap-bar-track {
-      width:100%; height:3px; background:#2a2018; border-radius:2px;
-      position:relative; cursor:pointer; touch-action:none;
-    }
-    .ap-bar-fill {
-      height:100%; background: linear-gradient(to right,#8a7255,#b09070);
-      border-radius:2px; width:0%; transition:width 0.1s linear;
-      pointer-events:none;
-    }
-    .ap-times {
-      display:flex; justify-content:space-between;
-      font-size:10px; color:#5a4e3a; letter-spacing:0.5px;
+    .s-card.active {
+      transform: scale(1) translateY(0);
+      opacity: 1;
     }
 
-    /* lyrics */
+    .s-card.adjacent {
+      transform: scale(0.9) translateY(6px);
+      opacity: 0.75;
+    }
+
+    /* Glassmorphism background */
+    .s-card-bg {
+      position: absolute; inset: 0; border-radius: 28px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    /* Coloured gradient per card */
+    .s-card-color {
+      position: absolute; inset: 0; border-radius: 28px;
+      opacity: 0.82;
+    }
+
+    .s-card-inner {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: space-between;
+      padding: 28px 20px 22px;
+      min-height: 310px;
+    }
+
+    .s-card-num {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); font-weight: 700;
+      align-self: flex-start;
+    }
+
+    .s-card-icon {
+      font-size: 52px; line-height: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+      margin: 4px 0 8px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .s-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem,4vw,1.35rem);
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      line-height: 1.2;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      margin-bottom: 4px;
+    }
+
+    .s-card-subtitle {
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); text-align: center;
+      margin-bottom: 16px;
+    }
+
+    /* Glassmorphism player pill */
+    .s-card-player {
+      width: 100%;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .s-play-btn {
+      width: 32px; height: 32px; min-width: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; touch-action: manipulation;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .s-play-btn:active { background: rgba(255,255,255,0.38); }
+    .s-play-btn svg { width: 13px; height: 13px; fill: #fff; flex-shrink: 0; }
+
+    .s-bar-wrap { flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .s-bar-track {
+      width: 100%; height: 3px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px; cursor: pointer; touch-action: none;
+      position: relative;
+    }
+    .s-bar-fill { height: 100%; background: rgba(255,255,255,0.85); border-radius: 2px; width: 0%; pointer-events: none; transition: width 0.1s linear; }
+    .s-times { display: flex; justify-content: space-between; font-size: 9px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px; }
+
+    /* lyrics panel below carousel */
+    .lyrics-panel-outer {
+      max-width: 560px; margin: 0 auto;
+      padding: 0 1.5rem;
+      min-height: 60px;
+    }
+
+    .lyrics-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 1.4rem 1.6rem;
+      transition: opacity 0.35s ease;
+    }
+
+    .lyrics-box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: #c8b898; margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding-bottom: 0.7rem;
+    }
+
     .lyrics-text {
-      font-size:clamp(0.82rem,3.2vw,0.88rem); line-height:2.1;
-      color:#6a6058; white-space:pre-line;
+      font-size: clamp(0.82rem,3vw,0.88rem);
+      line-height: 2.1; color: #6a6058;
+      white-space: pre-line;
     }
-    .lyrics-line-group { margin-bottom:1.3rem; }
-    .lyrics-line-group:last-child { margin-bottom:0; }
-    .lyrics-highlight { color:#9a8870; font-style:italic; }
+    .lyrics-highlight { color: #9a8870; font-style: italic; }
+    .lyrics-soon { color: #4a4038; font-style: italic; font-size: 0.85rem; }
+
+    /* dot indicators */
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 6px;
+      padding: 1rem 0 0;
+    }
+    .c-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #2a2018; transition: background 0.3s, transform 0.3s;
+    }
+    .c-dot.active { background: #8a7255; transform: scale(1.5); }
 
     /* ── GALLERY ── */
-    .gallery-section {
-      margin-top:1rem; border-top:1px solid #1e1a14; border-bottom:1px solid #1e1a14;
-      background:radial-gradient(ellipse at top,#0e0b08 0%,#0a0a0a 70%); overflow:hidden;
-    }
-    .gallery-header {
-      display:flex; align-items:flex-end; justify-content:space-between;
-      flex-wrap:wrap; gap:0.5rem;
-      padding:clamp(1.5rem,5vw,2.5rem) clamp(1rem,5vw,2rem) 1.2rem;
-      border-bottom:1px solid #1a1510;
-    }
-    .gallery-title-text {
-      font-family:'Playfair Display',serif; font-size:clamp(1.2rem,5vw,1.6rem);
-      font-weight:400; font-style:italic; color:#c8b898;
-    }
-    .gallery-hint { display:flex; gap:1rem; flex-wrap:wrap; }
-    .gallery-hint span { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#3a3028; font-weight:700; }
-    .gallery-hint span::before { content:'·'; margin-right:5px; color:#5a4030; }
-
-    .gallery-canvas-wrap {
-      width:100%; height:clamp(280px,60vw,500px);
-      overflow:hidden; cursor:grab; position:relative;
-      background:#080806; touch-action:none;
-    }
-    .gallery-canvas-wrap.grabbing { cursor:grabbing; }
-    #gnat-world { position:absolute; top:0; left:0; transform-origin:0 0; will-change:transform; }
-    .g-cell { position:absolute; overflow:hidden; border-radius:4px; border:1px solid #1e1810; }
-    .g-cell img {
-      width:100%; height:100%; object-fit:cover; display:block;
-      filter:grayscale(40%) contrast(1.05) brightness(0.75) sepia(20%);
-      transition:filter 0.4s ease;
-    }
-    .g-cell:hover img { filter:grayscale(15%) contrast(1.08) brightness(0.88) sepia(10%); }
-    .g-cell-overlay {
-      position:absolute; bottom:0; left:0; right:0; padding:8px 10px;
-      background:linear-gradient(transparent,rgba(5,3,2,0.8));
-      opacity:0; transition:opacity 0.3s; pointer-events:none;
-    }
-    .g-cell:hover .g-cell-overlay { opacity:1; }
-    .g-cell-label { font-family:'Playfair Display',serif; font-size:10px; font-style:italic; color:#9a8060; letter-spacing:1px; }
-
-    .gallery-zoom-controls { position:absolute; bottom:14px; right:14px; display:flex; flex-direction:column; gap:4px; z-index:10; }
-    .gzc-btn {
-      width:34px; height:34px; border:1px solid #2a2018; background:rgba(14,11,8,0.9);
-      color:#6a5a48; font-size:16px; cursor:pointer;
-      display:flex; align-items:center; justify-content:center;
-      border-radius:4px; transition:border-color 0.2s,color 0.2s; touch-action:manipulation;
-    }
-    .gzc-btn:active { border-color:#5a4030; color:#b09070; }
-    .gallery-zoom-level { font-size:9px; color:#3a3028; text-align:center; letter-spacing:1px; margin-top:2px; font-weight:700; }
-    .gallery-minimap {
-      position:absolute; bottom:14px; left:14px; width:70px; height:48px;
-      border:1px solid #2a2018; background:rgba(10,8,6,0.85); border-radius:3px; overflow:hidden; opacity:0.65;
-    }
-    .gallery-minimap-vp { position:absolute; border:1.5px solid #5a4030; border-radius:1px; pointer-events:none; }
+    .gallery-section { margin-top: 1rem; border-top: 1px solid #1e1a14; border-bottom: 1px solid #1e1a14; background: radial-gradient(ellipse at top,#0e0b08 0%,#0a0a0a 70%); overflow: hidden; }
+    .gallery-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding: clamp(1.5rem,5vw,2.5rem) clamp(1rem,5vw,2rem) 1.2rem; border-bottom: 1px solid #1a1510; }
+    .gallery-title-text { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem,5vw,1.6rem); font-weight: 400; font-style: italic; color: #c8b898; }
+    .gallery-hint { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .gallery-hint span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #3a3028; font-weight: 700; }
+    .gallery-hint span::before { content: '·'; margin-right: 5px; color: #5a4030; }
+    .gallery-canvas-wrap { width: 100%; height: clamp(280px,60vw,500px); overflow: hidden; cursor: grab; position: relative; background: #080806; touch-action: none; }
+    .gallery-canvas-wrap.grabbing { cursor: grabbing; }
+    #gnat-world { position: absolute; top: 0; left: 0; transform-origin: 0 0; will-change: transform; }
+    .g-cell { position: absolute; overflow: hidden; border-radius: 4px; border: 1px solid #1e1810; }
+    .g-cell img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(40%) contrast(1.05) brightness(0.75) sepia(20%); transition: filter 0.4s ease; }
+    .g-cell:hover img { filter: grayscale(15%) contrast(1.08) brightness(0.88) sepia(10%); }
+    .g-cell-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 8px 10px; background: linear-gradient(transparent,rgba(5,3,2,0.8)); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+    .g-cell:hover .g-cell-overlay { opacity: 1; }
+    .g-cell-label { font-family: 'Playfair Display', serif; font-size: 10px; font-style: italic; color: #9a8060; letter-spacing: 1px; }
+    .gallery-zoom-controls { position: absolute; bottom: 14px; right: 14px; display: flex; flex-direction: column; gap: 4px; z-index: 10; }
+    .gzc-btn { width: 34px; height: 34px; border: 1px solid #2a2018; background: rgba(14,11,8,0.9); color: #6a5a48; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 4px; transition: border-color 0.2s, color 0.2s; touch-action: manipulation; }
+    .gzc-btn:active { border-color: #5a4030; color: #b09070; }
+    .gallery-zoom-level { font-size: 9px; color: #3a3028; text-align: center; letter-spacing: 1px; margin-top: 2px; font-weight: 700; }
+    .gallery-minimap { position: absolute; bottom: 14px; left: 14px; width: 70px; height: 48px; border: 1px solid #2a2018; background: rgba(10,8,6,0.85); border-radius: 3px; overflow: hidden; opacity: 0.65; }
+    .gallery-minimap-vp { position: absolute; border: 1.5px solid #5a4030; border-radius: 1px; pointer-events: none; }
 
     /* ── FOOTER ── */
-    .footer { text-align:center; padding:3rem 1.5rem 2rem; font-size:clamp(0.7rem,2.5vw,0.78rem); color:#3a3028; letter-spacing:1px; }
+    .footer { text-align: center; padding: 3rem 1.5rem 2rem; font-size: clamp(0.7rem,2.5vw,0.78rem); color: #3a3028; letter-spacing: 1px; }
     @supports (padding-bottom: env(safe-area-inset-bottom)) {
       .footer { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
     }
@@ -289,339 +272,15 @@
   </div>
 </div>
 
+<!-- CAROUSEL -->
 <div class="section-label">Songs &amp; Lyrics</div>
 
-<div class="songs-grid">
-
-  <!-- 01 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-1"><div class="thumb-inner"><span class="thumb-note">♩</span><span class="thumb-num">01</span></div></div>
-      <div class="song-meta"><div class="song-title">I Tel Lo Chuan</div><div class="song-subtitle">Mizo Love Song · 2012</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="i_tello_chuan.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text">In vangkhawpui laitualah
-Chhingkhual rawn changin lungrunpui
-Karah ka lo dawn ngai lo
-Nang nen ti ema hmangaihna</div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">A rei lo em, kan hlimlai ni
-Tunah erawh lenna tlang a dang leh si
-Lung ka vai ruai e, i tel lo chuan
-Aw, tleitir lenmawi</div>
-      <div class="lyrics-line-group lyrics-text">Zantiang chhawrthla eng hnuaiah
-Ka dawn vawng vawng thin hlimlai ni
-Duh te'n i tang bei lai zan
-Nghilhni awm thei hian ka mawi lo</div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">Lenna tlang dang thin mahse
-Min nghilh bik lo'ng che lungrun
-Nang nen biahthu kan hlan zawng
-Vawng dun zel ang aw kumtluangin</div>
-    </div></div></div>
+<div class="carousel-section">
+  <div class="carousel-track-outer" id="carouselOuter">
+    <div class="carousel-track" id="carouselTrack"></div>
   </div>
-
-  <!-- 02 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-2"><div class="thumb-inner"><span class="thumb-note">♪</span><span class="thumb-num">02</span></div></div>
-      <div class="song-meta"><div class="song-title">Ngaihzual</div><div class="song-subtitle">Mizo Classic · 2005</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="ngaihzual.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text">Bawihte, i zun leng ngaiin
-Laikhum zawlah tlaikhua ka var thrin
-Mualzapui kar danah lengin
-Sakhmel tawng lo vin</div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">Chhingmitthla an i cham reng thin e
-Thinlai ruk an i cham reng mai
-Dawnin a na ngei e!
-Di ngaih lunglen ka tuar thiam lo</div>
-      <div class="lyrics-line-group lyrics-text">Suihlung a phang thin e
-Lengdang min chhai san lul suh aw, ngaihzual
-I zun leng ngaiin eng dang ka dawn thei lo
-Sakhmel tawn nan, ka tuanna tlang atang hian e</div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">Engtin min ngai ve che maw?
-I thinlai rukah ka cham ve thin em?
-Kei zawng i zunah chhawl iangin
-Aw, ka uai reng si</div>
-      <div class="lyrics-line-group lyrics-text">Nghilh ni reng i awm thei mawlh si lo
-Thinlai ruka'n i cham reng mai
-I tawnah biahthu ka hlan zawngte nghilh lo la
-Lengdang tang bel mai lo vin min nghak hram rawh aw</div>
-    </div></div></div>
-  </div>
-
-  <!-- 03 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-3"><div class="thumb-inner"><span class="thumb-note">♫</span><span class="thumb-num">03</span></div></div>
-      <div class="song-meta"><div class="song-title">Mampui</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="mampui.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 04 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-4"><div class="thumb-inner"><span class="thumb-note">♬</span><span class="thumb-num">04</span></div></div>
-      <div class="song-meta"><div class="song-title">Lungdum</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="lungdum.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 05 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-5"><div class="thumb-inner"><span class="thumb-note">♩</span><span class="thumb-num">05</span></div></div>
-      <div class="song-meta"><div class="song-title">Duhaisam Tikimtu</div><div class="song-subtitle">Mizo Song · 2010</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="duhaisam_tikimtu.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text">Nang ngei hi duhaisam tikimtu
-Hmangaihna par tin kan tlan dun kha
-Tunah lunglai herin min liam san
-Run rempui tur i tawng ta em ni</div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">Hetiang rapthlak taka min kalsan
-Hre lo vin nge ka nih ang
-Ka lungrunna chu min hre lo em
-Duhaisam tikimtu</div>
-      <div class="lyrics-line-group lyrics-text">Ka hmangaihna pek tawh ang u
-Nang ngei tan ka chawimawi
-I nghilh dawn loh biahthu pek che
-Ka thinlung tawn atangin</div>
-    </div></div></div>
-  </div>
-
-  <!-- 06 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-6"><div class="thumb-inner"><span class="thumb-note">♪</span><span class="thumb-num">06</span></div></div>
-      <div class="song-meta"><div class="song-title">Kumtluang Atan</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="kumtluang_atan.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 07 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-7"><div class="thumb-inner"><span class="thumb-note">♫</span><span class="thumb-num">07</span></div></div>
-      <div class="song-meta"><div class="song-title">Lung Ka Vai</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="lung_ka_vai.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 08 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-8"><div class="thumb-inner"><span class="thumb-note">♬</span><span class="thumb-num">08</span></div></div>
-      <div class="song-meta"><div class="song-title">Lenmawi</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="lenmawi.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 09 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-9"><div class="thumb-inner"><span class="thumb-note">♩</span><span class="thumb-num">09</span></div></div>
-      <div class="song-meta"><div class="song-title">Lunglen Ti Zualtu</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="lunglen_ti_zualtu.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 10 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-10"><div class="thumb-inner"><span class="thumb-note">♪</span><span class="thumb-num">10</span></div></div>
-      <div class="song-meta"><div class="song-title">Ka Rospari</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="ka_rospari.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 11 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-11"><div class="thumb-inner"><span class="thumb-note">♫</span><span class="thumb-num">11</span></div></div>
-      <div class="song-meta"><div class="song-title">Smooth</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="smooth.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 12 -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-12"><div class="thumb-inner"><span class="thumb-note">♬</span><span class="thumb-num">12</span></div></div>
-      <div class="song-meta"><div class="song-title">The Spirit Carries On</div><div class="song-subtitle">Mizo Song</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="the_spirit_carries_on.mp3">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">♪ Lyrics coming soon ♪</div>
-    </div></div></div>
-  </div>
-
-  <!-- 13 — Zan Lalnu (original 4th song, keeping lyrics) -->
-  <div class="song-card">
-    <div class="song-header" onclick="toggle(this.parentElement)">
-      <div class="thumb thumb-13"><div class="thumb-inner"><span class="thumb-note">♩</span><span class="thumb-num">13</span></div></div>
-      <div class="song-meta"><div class="song-title">Zan Lalnu</div><div class="song-subtitle">Mizo Song · 2011</div></div>
-      <div class="song-toggle"><div class="toggle-icon"></div></div>
-    </div>
-    <div class="lyrics-panel"><div class="lyrics-overflow"><div class="lyrics-inner">
-      <div class="audio-player" data-src="">
-        <button class="ap-btn" onclick="apToggle(this)">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="ap-progress-wrap">
-          <div class="ap-bar-track"><div class="ap-bar-fill"></div></div>
-          <div class="ap-times"><span class="ap-cur">0:00</span><span class="ap-dur">–:––</span></div>
-        </div>
-      </div>
-      <div class="lyrics-line-group lyrics-text">Han thlir ve teh u
-Chhawrh thlapui eng ruai khi
-Run tin en in
-A her liai thang van sang an</div>
-      <div class="lyrics-line-group lyrics-text lyrics-highlight">Theih chang se aw
-Kawp lai di nen
-A eng mawi la
-Zan lalnu hi min en ve ang</div>
-      <div class="lyrics-line-group lyrics-text">Van lamah thawn
-Chhawrh thlapui eng mawi chu
-Ka lungrun nen
-A inchham lua em em mai</div>
-    </div></div></div>
-  </div>
-
+  <div class="carousel-dots" id="carouselDots"></div>
+  <div class="lyrics-panel-outer" id="lyricsOuter" style="margin-top:1.8rem;"></div>
 </div>
 
 <!-- GALLERY -->
@@ -649,91 +308,321 @@ A inchham lua em em mai</div>
 </div>
 
 <script>
-/* ── ACCORDION ── */
-function toggle(card) {
-  const wasOpen = card.classList.contains('open');
-  document.querySelectorAll('.song-card.open').forEach(c => c.classList.remove('open'));
-  if (!wasOpen) card.classList.add('open');
+/* ══════════════════════
+   SONGS DATA
+══════════════════════ */
+const SONGS = [
+  {
+    num:'01', title:'I Tel Lo Chuan', sub:'Mizo Love Song · 2012', src:'i_tello_chuan.mp3',
+    icon:'♩',
+    grad:'linear-gradient(145deg,#1a3a4a 0%,#0d2030 60%,#0a1520 100%)',
+    accent:'rgba(60,140,180,0.35)',
+    lyrics:[
+      {text:`In vangkhawpui laitualah\nChhingkhual rawn changin lungrunpui\nKarah ka lo dawn ngai lo\nNang nen ti ema hmangaihna`},
+      {text:`A rei lo em, kan hlimlai ni\nTunah erawh lenna tlang a dang leh si\nLung ka vai ruai e, i tel lo chuan\nAw, tleitir lenmawi`, hi:true},
+      {text:`Zantiang chhawrthla eng hnuaiah\nKa dawn vawng vawng thin hlimlai ni\nDuh te'n i tang bei lai zan\nNghilhni awm thei hian ka mawi lo`},
+      {text:`Lenna tlang dang thin mahse\nMin nghilh bik lo'ng che lungrun\nNang nen biahthu kan hlan zawng\nVawng dun zel ang aw kumtluangin`, hi:true},
+    ]
+  },
+  {
+    num:'02', title:'Ngaihzual', sub:'Mizo Classic · 2005', src:'ngaihzual.mp3',
+    icon:'♪',
+    grad:'linear-gradient(145deg,#2a1a3a 0%,#180d28 60%,#100818 100%)',
+    accent:'rgba(130,80,200,0.35)',
+    lyrics:[
+      {text:`Bawihte, i zun leng ngaiin\nLaikhum zawlah tlaikhua ka var thrin\nMualzapui kar danah lengin\nSakhmel tawng lo vin`},
+      {text:`Chhingmitthla an i cham reng thin e\nThinlai ruk an i cham reng mai\nDawnin a na ngei e!\nDi ngaih lunglen ka tuar thiam lo`, hi:true},
+      {text:`Suihlung a phang thin e\nLengdang min chhai san lul suh aw, ngaihzual\nI zun leng ngaiin eng dang ka dawn thei lo\nSakhmel tawn nan, ka tuanna tlang atang hian e`},
+      {text:`Engtin min ngai ve che maw?\nI thinlai rukah ka cham ve thin em?\nKei zawng i zunah chhawl iangin\nAw, ka uai reng si`, hi:true},
+      {text:`Nghilh ni reng i awm thei mawlh si lo\nThinlai ruka'n i cham reng mai\nI tawnah biahthu ka hlan zawngte nghilh lo la\nLengdang tang bel mai lo vin min nghak hram rawh aw`},
+    ]
+  },
+  {
+    num:'03', title:'Mampui', sub:'Mizo Song', src:'mampui.mp3',
+    icon:'♫',
+    grad:'linear-gradient(145deg,#1a3020 0%,#0d2015 60%,#081510 100%)',
+    accent:'rgba(60,160,90,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'04', title:'Lungdum', sub:'Mizo Song', src:'lungdum.mp3',
+    icon:'♬',
+    grad:'linear-gradient(145deg,#3a1a20 0%,#280d15 60%,#180810 100%)',
+    accent:'rgba(200,70,100,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'05', title:'Duhaisam Tikimtu', sub:'Mizo Song · 2010', src:'duhaisam_tikimtu.mp3',
+    icon:'♩',
+    grad:'linear-gradient(145deg,#2a2a10 0%,#1a1a08 60%,#101008 100%)',
+    accent:'rgba(180,160,40,0.35)',
+    lyrics:[
+      {text:`Nang ngei hi duhaisam tikimtu\nHmangaihna par tin kan tlan dun kha\nTunah lunglai herin min liam san\nRun rempui tur i tawng ta em ni`},
+      {text:`Hetiang rapthlak taka min kalsan\nHre lo vin nge ka nih ang\nKa lungrunna chu min hre lo em\nDuhaisam tikimtu`, hi:true},
+      {text:`Ka hmangaihna pek tawh ang u\nNang ngei tan ka chawimawi\nI nghilh dawn loh biahthu pek che\nKa thinlung tawn atangin`},
+    ]
+  },
+  {
+    num:'06', title:'Kumtluang Atan', sub:'Mizo Song', src:'kumtluang_atan.mp3',
+    icon:'♪',
+    grad:'linear-gradient(145deg,#0e2838 0%,#081820 60%,#051018 100%)',
+    accent:'rgba(40,140,180,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'07', title:'Lung Ka Vai', sub:'Mizo Song', src:'lung_ka_vai.mp3',
+    icon:'♫',
+    grad:'linear-gradient(145deg,#281828 0%,#180d18 60%,#100810 100%)',
+    accent:'rgba(160,80,180,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'08', title:'Lenmawi', sub:'Mizo Song', src:'lenmawi.mp3',
+    icon:'♬',
+    grad:'linear-gradient(145deg,#382010 0%,#281408 60%,#180e05 100%)',
+    accent:'rgba(200,120,50,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'09', title:'Lunglen Ti Zualtu', sub:'Mizo Song', src:'lunglen_ti_zualtu.mp3',
+    icon:'♩',
+    grad:'linear-gradient(145deg,#0e3028 0%,#082018 60%,#051510 100%)',
+    accent:'rgba(40,180,140,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'10', title:'Ka Rospari', sub:'Mizo Song', src:'ka_rospari.mp3',
+    icon:'♪',
+    grad:'linear-gradient(145deg,#301828 0%,#200d18 60%,#150810 100%)',
+    accent:'rgba(190,80,140,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'11', title:'Smooth', sub:'Mizo Song', src:'smooth.mp3',
+    icon:'♫',
+    grad:'linear-gradient(145deg,#102030 0%,#081520 60%,#050e18 100%)',
+    accent:'rgba(40,120,200,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'12', title:'The Spirit Carries On', sub:'Mizo Song', src:'the_spirit_carries_on.mp3',
+    icon:'♬',
+    grad:'linear-gradient(145deg,#1a1010 0%,#100808 60%,#0a0505 100%)',
+    accent:'rgba(180,60,60,0.35)',
+    lyrics:[]
+  },
+  {
+    num:'13', title:'Zan Lalnu', sub:'Mizo Song · 2011', src:'',
+    icon:'♩',
+    grad:'linear-gradient(145deg,#181828 0%,#0d0d18 60%,#080810 100%)',
+    accent:'rgba(100,100,180,0.35)',
+    lyrics:[
+      {text:`Han thlir ve teh u\nChhawrh thlapui eng ruai khi\nRun tin en in\nA her liai thang van sang an`},
+      {text:`Theih chang se aw\nKawp lai di nen\nA eng mawi la\nZan lalnu hi min en ve ang`, hi:true},
+      {text:`Van lamah thawn\nChhawrh thlapui eng mawi chu\nKa lungrun nen\nA inchham lua em em mai`},
+    ]
+  },
+];
+
+const playSVG  = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+const pauseSVG = `<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
+
+/* ── BUILD CARDS ── */
+const track     = document.getElementById('carouselTrack');
+const dotsEl    = document.getElementById('carouselDots');
+const lyricsOut = document.getElementById('lyricsOuter');
+
+let currentIdx  = 0;
+let currentAudio= null;
+let currentPlayBtn = null;
+
+function fmt(s){ if(!isFinite(s))return'–:––'; const m=Math.floor(s/60),sec=Math.floor(s%60); return m+':'+String(sec).padStart(2,'0'); }
+
+SONGS.forEach((song, i) => {
+  /* card */
+  const card = document.createElement('div');
+  card.className = 's-card';
+  card.dataset.idx = i;
+  card.innerHTML = `
+    <div class="s-card-bg"></div>
+    <div class="s-card-color" style="background:${song.grad}"></div>
+    <div class="s-card-inner">
+      <div class="s-card-num">No. ${song.num}</div>
+      <div class="s-card-icon">${song.icon}</div>
+      <div>
+        <div class="s-card-title">${song.title}</div>
+        <div class="s-card-subtitle">${song.sub}</div>
+      </div>
+      <div class="s-card-player" id="player-${i}">
+        <button class="s-play-btn" id="playbtn-${i}" onclick="audioToggle(${i},this)">${playSVG}</button>
+        <div class="s-bar-wrap">
+          <div class="s-bar-track" id="track-${i}"><div class="s-bar-fill" id="fill-${i}"></div></div>
+          <div class="s-times"><span id="cur-${i}">0:00</span><span id="dur-${i}">–:––</span></div>
+        </div>
+      </div>
+    </div>`;
+  track.appendChild(card);
+
+  /* dot */
+  const dot = document.createElement('div');
+  dot.className = 'c-dot';
+  dot.dataset.idx = i;
+  dot.onclick = () => goTo(i);
+  dotsEl.appendChild(dot);
+});
+
+function getLyricsHTML(song){
+  if(!song.lyrics || song.lyrics.length === 0){
+    return `<div class="lyrics-box"><div class="lyrics-box-title">${song.title}</div><div class="lyrics-soon">♪ Lyrics coming soon ♪</div></div>`;
+  }
+  const blocks = song.lyrics.map(l=>`<div class="lyrics-text ${l.hi?'lyrics-highlight':''}" style="margin-bottom:1rem">${l.text}</div>`).join('');
+  return `<div class="lyrics-box"><div class="lyrics-box-title">${song.title}</div>${blocks}</div>`;
 }
 
-/* ── AUDIO PLAYER ── */
-const pauseSVG = '<svg viewBox="0 0 24 24" fill="#9a8060" width="14" height="14"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
-const playSVG  = '<svg viewBox="0 0 24 24" fill="#9a8060" width="14" height="14"><path d="M8 5v14l11-7z"/></svg>';
-
-let currentAudio = null;
-let currentBtn   = null;
-
-function fmt(s) {
-  if (!isFinite(s)) return '–:––';
-  const m = Math.floor(s / 60), sec = Math.floor(s % 60);
-  return m + ':' + String(sec).padStart(2, '0');
+function updateCards(){
+  const cards = track.querySelectorAll('.s-card');
+  const dots  = dotsEl.querySelectorAll('.c-dot');
+  cards.forEach((c, i) => {
+    c.classList.remove('active','adjacent');
+    const diff = Math.abs(i - currentIdx);
+    if(diff === 0) c.classList.add('active');
+    else if(diff === 1) c.classList.add('adjacent');
+  });
+  dots.forEach((d,i) => d.classList.toggle('active', i === currentIdx));
+  lyricsOut.innerHTML = getLyricsHTML(SONGS[currentIdx]);
 }
 
-function apToggle(btn) {
-  const player = btn.closest('.audio-player');
-  const src    = player.dataset.src;
-  if (!src) return;
+/* ── CAROUSEL DRAG & SNAP ── */
+const outer = document.getElementById('carouselOuter');
+const CARD_W = 220, GAP = 20, UNIT = CARD_W + GAP;
 
-  const fill = player.querySelector('.ap-bar-fill');
-  const cur  = player.querySelector('.ap-cur');
-  const dur  = player.querySelector('.ap-dur');
-  const track= player.querySelector('.ap-bar-track');
+let isDragging = false, startX = 0, startScroll = 0, velX = 0, lastX = 0, lastT = 0;
+let scrollX = 0;
 
-  // Stop previous audio if different player
-  if (currentAudio && currentBtn !== btn) {
+function getMaxScroll(){ return (SONGS.length - 1) * UNIT; }
+
+function applyScroll(x, animate){
+  scrollX = Math.max(0, Math.min(x, getMaxScroll()));
+  track.style.transition = animate ? 'transform 0.42s cubic-bezier(0.4,0,0.2,1)' : 'none';
+  track.style.transform  = `translateX(${-scrollX}px)`;
+}
+
+function snapToNearest(){
+  const idx = Math.round(scrollX / UNIT);
+  currentIdx = Math.max(0, Math.min(idx, SONGS.length - 1));
+  applyScroll(currentIdx * UNIT, true);
+  updateCards();
+}
+
+function goTo(idx){
+  currentIdx = Math.max(0, Math.min(idx, SONGS.length - 1));
+  applyScroll(currentIdx * UNIT, true);
+  updateCards();
+}
+
+/* Mouse */
+outer.addEventListener('mousedown', e => {
+  isDragging = true; startX = e.clientX; startScroll = scrollX; velX = 0; lastX = e.clientX; lastT = Date.now();
+  outer.classList.add('dragging');
+});
+window.addEventListener('mousemove', e => {
+  if(!isDragging) return;
+  const dx = e.clientX - startX;
+  applyScroll(startScroll - dx, false);
+  velX = (e.clientX - lastX) / Math.max(1, Date.now() - lastT) * 16;
+  lastX = e.clientX; lastT = Date.now();
+});
+window.addEventListener('mouseup', () => {
+  if(!isDragging) return;
+  isDragging = false; outer.classList.remove('dragging');
+  applyScroll(scrollX - velX * 4, false);
+  snapToNearest();
+});
+
+/* Touch */
+let tStartX = 0, tStartScroll = 0, tLastX = 0, tLastT = 0, tVel = 0;
+outer.addEventListener('touchstart', e => {
+  tStartX = e.touches[0].clientX; tStartScroll = scrollX; tVel = 0;
+  tLastX = tStartX; tLastT = Date.now();
+}, {passive:true});
+outer.addEventListener('touchmove', e => {
+  const dx = tStartX - e.touches[0].clientX;
+  applyScroll(tStartScroll + dx, false);
+  tVel = (tLastX - e.touches[0].clientX) / Math.max(1, Date.now() - tLastT) * 16;
+  tLastX = e.touches[0].clientX; tLastT = Date.now();
+}, {passive:true});
+outer.addEventListener('touchend', () => {
+  applyScroll(scrollX + tVel * 4, false);
+  snapToNearest();
+});
+
+/* Tap on card to go to it */
+track.addEventListener('click', e => {
+  const card = e.target.closest('.s-card');
+  if(!card) return;
+  const idx = parseInt(card.dataset.idx);
+  if(idx !== currentIdx) goTo(idx);
+});
+
+/* ── AUDIO ── */
+const audioCache = {};
+function audioToggle(idx, btn){
+  const song = SONGS[idx];
+  if(!song.src){ return; }
+
+  if(currentAudio && currentPlayBtn !== btn){
     currentAudio.pause();
-    currentBtn.innerHTML = playSVG;
+    currentPlayBtn.innerHTML = playSVG;
     currentAudio = null;
   }
 
-  // Init audio for this player
-  if (!player._audio) {
-    const a = new Audio(src);
+  if(!audioCache[idx]){
+    const a = new Audio(song.src);
     a.preload = 'metadata';
-    player._audio = a;
-
+    audioCache[idx] = a;
+    const fill = document.getElementById('fill-'+idx);
+    const cur  = document.getElementById('cur-'+idx);
+    const dur  = document.getElementById('dur-'+idx);
+    const barTrack = document.getElementById('track-'+idx);
     a.addEventListener('loadedmetadata', () => { dur.textContent = fmt(a.duration); });
     a.addEventListener('timeupdate', () => {
-      const pct = a.duration ? (a.currentTime / a.duration) * 100 : 0;
-      fill.style.width = pct + '%';
-      cur.textContent  = fmt(a.currentTime);
+      const pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
+      fill.style.width = pct+'%'; cur.textContent = fmt(a.currentTime);
     });
     a.addEventListener('ended', () => {
-      btn.innerHTML    = playSVG;
-      fill.style.width = '0%';
-      cur.textContent  = '0:00';
-      currentAudio = null; currentBtn = null;
+      btn.innerHTML = playSVG; fill.style.width = '0%'; cur.textContent = '0:00';
+      currentAudio = null; currentPlayBtn = null;
     });
-
-    // Scrub on progress bar
-    function scrub(e) {
-      const rect = track.getBoundingClientRect();
-      const x    = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-      const pct  = Math.max(0, Math.min(1, x / rect.width));
-      if (a.duration) a.currentTime = pct * a.duration;
+    function scrub(e){
+      const r = barTrack.getBoundingClientRect();
+      const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+      const pct = Math.max(0,Math.min(1, x/r.width));
+      if(a.duration) a.currentTime = pct * a.duration;
     }
-    track.addEventListener('click',      scrub);
-    track.addEventListener('touchstart', scrub, {passive:true});
+    barTrack.addEventListener('click', scrub);
+    barTrack.addEventListener('touchstart', scrub, {passive:true});
   }
 
-  const audio = player._audio;
-
-  if (audio.paused) {
-    audio.play().catch(() => {});
+  const audio = audioCache[idx];
+  if(audio.paused){
+    audio.play().catch(()=>{});
     btn.innerHTML = pauseSVG;
-    currentAudio  = audio;
-    currentBtn    = btn;
+    currentAudio = audio; currentPlayBtn = btn;
   } else {
     audio.pause();
     btn.innerHTML = playSVG;
-    currentAudio  = null;
-    currentBtn    = null;
+    currentAudio = null; currentPlayBtn = null;
   }
 }
 
-/* ── GALLERY ── */
-(function () {
-  const photos = [
+/* init */
+updateCards();
+
+/* ══════════════════════
+   GALLERY
+══════════════════════ */
+(function(){
+  const photos=[
     {w:280,h:200,label:"On Stage"},{w:200,h:280,label:"Backstage"},
     {w:260,h:190,label:"Recording"},{w:200,h:260,label:"Portrait"},
     {w:320,h:200,label:"Live Performance"},{w:200,h:200,label:"At Rest"},
@@ -741,7 +630,7 @@ function apToggle(btn) {
     {w:290,h:195,label:"Friends"},{w:195,h:270,label:"Reflection"},
     {w:250,h:230,label:"Youth"},{w:230,h:195,label:"The Voice"},
   ];
-  const imgs = [
+  const imgs=[
     "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=320&fit=crop&auto=format",
     "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=280&fit=crop&auto=format",
     "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=300&fit=crop&auto=format",
@@ -755,14 +644,11 @@ function apToggle(btn) {
     "https://images.unsplash.com/photo-1504276048855-f3d60e69632f?w=280&fit=crop&auto=format",
     "https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=310&fit=crop&auto=format",
   ];
-
   const world=document.getElementById('gnat-world'),wrap=document.getElementById('gnat-gallery');
   const mmEl=document.getElementById('gminimap'),mmVP=document.getElementById('gminimap-vp');
   const zoomLbl=document.getElementById('gzoom-level');
   let totalW=0,totalH=0;
-
-  function getCols(){ return window.innerWidth<480?2:window.innerWidth<768?3:4; }
-
+  function getCols(){return window.innerWidth<480?2:window.innerWidth<768?3:4;}
   function buildGrid(){
     world.innerHTML='';
     const COLS=getCols(),GAP=10,PAD=16;
@@ -782,9 +668,7 @@ function apToggle(btn) {
     totalW=wrap.clientWidth; totalH=Math.max(...colH)+PAD;
     world.style.width=totalW+'px'; world.style.height=totalH+'px';
   }
-
-  let ox=0,oy=0,scale=1;
-  const MIN_S=0.4,MAX_S=3;
+  let ox=0,oy=0,scale=1; const MIN_S=0.4,MAX_S=3;
   function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
   function applyT(anim){
     const ww=wrap.clientWidth,wh=wrap.clientHeight;
@@ -797,13 +681,11 @@ function apToggle(btn) {
     const vpX=-ox/scale*ms,vpY=-oy/scale*mh;
     mmVP.style.cssText=`left:${clamp(vpX,0,mmEl.clientWidth-vpW)}px;top:${clamp(vpY,0,mmEl.clientHeight-vpH)}px;width:${vpW}px;height:${vpH}px`;
   }
-
   let drag=false,sx=0,sy=0,sox=0,soy=0;
   wrap.addEventListener('mousedown',e=>{drag=true;sx=e.clientX;sy=e.clientY;sox=ox;soy=oy;wrap.classList.add('grabbing');e.preventDefault();});
   window.addEventListener('mousemove',e=>{if(!drag)return;ox=sox+(e.clientX-sx);oy=soy+(e.clientY-sy);applyT();});
   window.addEventListener('mouseup',()=>{drag=false;wrap.classList.remove('grabbing');});
   wrap.addEventListener('wheel',e=>{e.preventDefault();const r=wrap.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,ns=clamp(scale*(1-e.deltaY*0.001),MIN_S,MAX_S);ox=mx-(mx-ox)*(ns/scale);oy=my-(my-oy)*(ns/scale);scale=ns;applyT();},{passive:false});
-
   let t2=false,iDist=1,iScale=1,iOx=0,iOy=0,pmx=0,pmy=0,tSx=0,tSy=0,tSox=0,tSoy=0;
   wrap.addEventListener('touchstart',e=>{
     if(e.touches.length===1){tSx=e.touches[0].clientX;tSy=e.touches[0].clientY;tSox=ox;tSoy=oy;t2=false;}
@@ -816,7 +698,6 @@ function apToggle(btn) {
     else if(e.touches.length===2){const d=Math.hypot(e.touches[1].clientX-e.touches[0].clientX,e.touches[1].clientY-e.touches[0].clientY),ns=clamp(iScale*(d/iDist),MIN_S,MAX_S);ox=pmx-(pmx-iOx)*(ns/iScale);oy=pmy-(pmy-iOy)*(ns/iScale);scale=ns;applyT();}
   },{passive:false});
   wrap.addEventListener('touchend',e=>{if(e.touches.length<2)t2=false;});
-
   function zoomAt(f){const mx=wrap.clientWidth/2,my=wrap.clientHeight/2,ns=clamp(scale*f,MIN_S,MAX_S);ox=mx-(mx-ox)*(ns/scale);oy=my-(my-oy)*(ns/scale);scale=ns;applyT(true);}
   document.getElementById('gbtn-in').onclick=()=>zoomAt(1.3);
   document.getElementById('gbtn-out').onclick=()=>zoomAt(0.75);
